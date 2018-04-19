@@ -6,7 +6,12 @@ const initState = {
     ranking: [],
     ranking_detail: {},
     hotwords: [],
-    auto_complete: []
+    auto_complete: [],
+    mixToc:{},
+    chapters:{},
+    chapter_content:{},
+    source:[],
+    error:null
 };
 
 export const read = (state = initState, action) => {
@@ -56,6 +61,26 @@ export const read = (state = initState, action) => {
                 ...state,
                 fuzzy_search: action.fuzzy_search
             };
+        case 'RECEIVE_CHAPTER':
+            return {
+                ...state,
+                chapters: action.chapters
+            };
+        case 'RECEIVE_CHAPTERCONTENT':
+            return {
+                ...state,
+                chapter_content: action.chapter_content
+            };
+        case 'RECEIVE_SOURCE':
+            return {
+                ...state,
+                source: action.source
+            };
+        case 'RECEIVE_ERROR':
+        return {
+            ...state,
+            error: action.error
+        };
         default:
             return state;
     }

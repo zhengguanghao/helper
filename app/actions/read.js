@@ -1,4 +1,4 @@
-import instance from '../utils/instance'
+import {instance,instance2} from '../utils/instance'
 
 //分类
 const receiveCats = (response) => ({
@@ -114,6 +114,56 @@ export const getFuzzySearch = (outText) => async (dispatch) => {
         let response = await instance.get('/book/fuzzy-search?query=' + outText)
         await dispatch(receiveFuzzySearch(response.data))
     } catch (error) {
+        console.log('error: ', error)
+    }
+}
+//小说章节
+const receiveChapter = (response) => ({
+    type: 'RECEIVE_CHAPTER',
+    chapters: response.chapters
+})
+export const getChapter = (id) => async (dispatch) => {
+    try {
+        let response = await instance.get('toc/' + id + '?view=chapters')
+        // alert(JSON.stringify(response.data))
+        await dispatch(receiveChapter(response.data))
+    } catch (error) {
+        console.log('error: ', error)
+    }
+}
+//小说source
+const receiveSource = (response) => ({
+    type: 'RECEIVE_SOURCE',
+    source: response
+})
+export const getSource = (id) => async (dispatch) => {
+    try {
+        let response = await instance.get('atoc?view=summary&book=' + id)
+        // alert(JSON.stringify(response))
+        await dispatch(receiveSource(response.data))
+    } catch (error) {
+        console.log('error: ', error)
+    }
+}
+//小说内容
+const receiveChapterContent = (response) => ({
+    type: 'RECEIVE_CHAPTERCONTENT',
+    chapter_content: response.chapter
+})
+const receiveError = (error) =>({
+    type: 'RECEIVE_ERROR',
+    error: error
+})
+export const getChapterContent = (link) => async (dispatch) => {
+    try {
+        // alert('/chapter/' + link)
+        await dispatch(receiveError(null))
+        let response = await instance2.get('/chapter/' + link)
+        // alert(JSON.stringify(link))
+        await dispatch(receiveChapterContent(response.data))
+    } catch (error) {
+        // alert(JSON.stringify(error.response.data))
+        await dispatch(receiveError(error.response.data.message))
         console.log('error: ', error)
     }
 }

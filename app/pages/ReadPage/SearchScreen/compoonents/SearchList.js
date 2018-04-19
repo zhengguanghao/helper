@@ -4,7 +4,7 @@ import {
     View
 } from 'react-native';
 import { WhiteSpace, WingBlank } from 'antd-mobile';
-import BookList from '../../../../components/BookList';
+import BookList from '../../components/BookList';
 import { staticPath } from '../../../../utils/staticConfig';
 class SearchList extends Component {
     render() {

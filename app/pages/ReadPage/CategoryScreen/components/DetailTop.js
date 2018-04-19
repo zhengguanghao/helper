@@ -4,8 +4,9 @@ import moment from 'moment';
 import { staticPath, dateDiff } from '../../../../utils/staticConfig';
 
 class DetailTop extends Component {
+    
     render() {
-        const { styles } = this.props;
+        const { styles,onRead } = this.props;
         const { title, cover, cat, wordCount, author, updated } = this.props.BasicsData;
         const time = moment(updated).format('X') * 1000;
         return (
@@ -32,7 +33,7 @@ class DetailTop extends Component {
                 </View>
                 <View style={styles.readInput}>
                     <Button
-                        // onPress={onButtonPress}
+                        onPress={onRead}
                         title="开始阅读"
                         color="#900"
                     />

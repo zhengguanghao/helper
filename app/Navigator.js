@@ -17,6 +17,7 @@ import BookDetailScreen from './pages/ReadPage/CategoryScreen/BookDetailScreen';
 import RankingScreen from './pages/ReadPage/RankingScreen/RankingScreen';
 import RankingDetailScreen from './pages/ReadPage/RankingScreen/RankingDetailScreen';
 import SearchScreen from './pages/ReadPage/SearchScreen/SearchScreen';
+import ReadScreen from './pages/ReadPage/ReadScreen/ReadScreen';
 //Favorites
 import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 
@@ -133,7 +134,8 @@ const ReadStackNavigator = StackNavigator({
     BookDetail: { screen: BookDetailScreen },
     Ranking: { screen: RankingScreen },
     RankingDetail: { screen: RankingDetailScreen },
-    Search: { screen: SearchScreen }
+    Search: { screen: SearchScreen },
+    Read: { screen: ReadScreen}
 }, StackNavigatorOptions);
 
 //各页面的Stack注册到Drawer

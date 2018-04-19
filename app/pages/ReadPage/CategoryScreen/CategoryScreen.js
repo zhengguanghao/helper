@@ -55,12 +55,12 @@ class CategoryScreen extends React.Component {
         const { cats } = this.props;
         const { type } = this.state;
         let type_en = '';
-        if (type === '男生') { type_en = 'male' } else if (type === '女生') { type_en = 'female' } else { type_en = 'press' };
+        if (type === '男生') { type_en = 'male' } else if (type === '女生') { type_en = 'female' };
         if (!isEmpty(cats)) {
             return (
                 <ScrollView contentContainerStyle={styles.contentContainer}>
                     <WingBlank style={styles.wrapper}>
-                        <SegmentedControl tintColor="#900" values={['男生', '女生', '出版']} onValueChange={(el) => this.onValueChange(el)} />
+                        <SegmentedControl tintColor="#900" values={['男生', '女生']} onValueChange={(el) => this.onValueChange(el)} />
                     </WingBlank>
                     <WhiteSpace />
                     <WingBlank style={styles.wrapper}>

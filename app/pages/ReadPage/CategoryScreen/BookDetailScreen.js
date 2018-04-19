@@ -20,8 +20,6 @@ import BookTag from './components/BookTag';
     dispatch => bindActionCreators({}, dispatch)
 )
 
-
-
 class BookDetailScreen extends Component {
 
     static navigationOptions = ({ navigation }) => ({
@@ -30,6 +28,13 @@ class BookDetailScreen extends Component {
 
     constructor(props) {
         super(props);
+    }
+
+    onRead(){
+        const {navigation,book_detail} = this.props;
+        // alert(book_detail._id)
+        navigation.navigate('Read',{_id:book_detail._id});
+        // alert(JSON.stringify(this.props.book_detail))
     }
 
 
@@ -42,6 +47,7 @@ class BookDetailScreen extends Component {
                         <DetailTop
                             styles={styles}
                             //staticPath = {util.staticPath}
+                            onRead={this.onRead.bind(this)}
                             BasicsData={book_detail}
                         />
                         <BookStatus

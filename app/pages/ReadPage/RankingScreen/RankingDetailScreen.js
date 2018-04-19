@@ -14,7 +14,7 @@ import { bindActionCreators } from 'redux';
 import connect from 'react-redux/es/connect/connect';
 import { getRankingDetail, getBookDetail } from '../../../actions/read';
 import isEmpty from '../../../utils/isEmpty'
-import BookList from '../../../components/BookList';
+import BookList from '../components/BookList';
 
 import { staticPath } from '../../../utils/staticConfig';
 

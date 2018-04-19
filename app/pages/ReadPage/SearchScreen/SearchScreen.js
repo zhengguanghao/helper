@@ -15,7 +15,7 @@ import { WhiteSpace, WingBlank, Tag } from 'antd-mobile';
 import { bindActionCreators } from 'redux';
 import connect from 'react-redux/es/connect/connect';
 import { getHotwords, getAutoComplete, getFuzzySearch,getBookDetail } from '../../../actions/read';
-import BookList from '../../../components/BookList';
+import BookList from '../components/BookList';
 import isArray from '../../../utils/isArray';
 import isEmpty from '../../../utils/isEmpty';
 
